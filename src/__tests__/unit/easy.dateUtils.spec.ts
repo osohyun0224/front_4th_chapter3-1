@@ -214,11 +214,20 @@ describe('getEventsForDay', () => {
     ]);
   });
 
-  it('해당 날짜에 이벤트가 없을 경우 빈 배열을 반환한다', () => {});
+  it('해당 날짜에 이벤트가 없을 경우 빈 배열을 반환한다', () => {
+    const eventDay = getEventsForDay(events, 25);
+    expect(eventDay).toEqual([]);
+  });
 
-  it('날짜가 0일 경우 빈 배열을 반환한다', () => {});
+  it('날짜가 0일 경우 빈 배열을 반환한다', () => {
+    const eventDay = getEventsForDay(events, 0);
+    expect(eventDay).toEqual([]);
+  });
 
-  it('날짜가 32일 이상인 경우 빈 배열을 반환한다', () => {});
+  it('날짜가 32일 이상인 경우 빈 배열을 반환한다', () => {
+    const eventDay = getEventsForDay(events, 32);
+    expect(eventDay).toEqual([]);
+  });
 });
 
 describe('formatWeek', () => {
