@@ -157,7 +157,62 @@ describe('getWeeksAtMonth', () => {
 });
 
 describe('getEventsForDay', () => {
-  it('특정 날짜(1일)에 해당하는 이벤트만 정확히 반환한다', () => {});
+  const events: Event[] = [
+    {
+      id: '1',
+      title: 'CoreTech 팀 주간 회의',
+      date: '2025-02-01',
+      startTime: '13:00',
+      endTime: '14:00',
+      description: 'CoreTech Weekly Standup',
+      location: 'CoreTech 회의실',
+      category: '업무',
+      repeat: { type: 'none', interval: 0 },
+      notificationTime: 10,
+    },
+    {
+      id: '2',
+      title: '해리와 과제하기',
+      date: '2025-02-04',
+      startTime: '18:00',
+      endTime: '22:00',
+      description: '항해 플러스 7주차 과제하기',
+      location: '스파크플러스',
+      category: '개인',
+      repeat: { type: 'none', interval: 0 },
+      notificationTime: 0,
+    },
+    {
+      id: '3',
+      title: '정원이랑 놀기',
+      date: '2025-02-24',
+      startTime: '15:00',
+      endTime: '18:00',
+      description: '정원이랑 한 주에 2일은 놀기',
+      location: '성수, 뚝섬',
+      category: '개인',
+      repeat: { type: 'none', interval: 0 },
+      notificationTime: 30,
+    },
+  ];
+
+  it('특정 날짜(1일)에 해당하는 이벤트만 정확히 반환한다', () => {
+    const eventDay = getEventsForDay(events, 1);
+    expect(eventDay).toEqual([
+      {
+        id: '1',
+        title: 'CoreTech 팀 주간 회의',
+        date: '2025-02-01',
+        startTime: '13:00',
+        endTime: '14:00',
+        description: 'CoreTech Weekly Standup',
+        location: 'CoreTech 회의실',
+        category: '업무',
+        repeat: { type: 'none', interval: 0 },
+        notificationTime: 10,
+      },
+    ]);
+  });
 
   it('해당 날짜에 이벤트가 없을 경우 빈 배열을 반환한다', () => {});
 
