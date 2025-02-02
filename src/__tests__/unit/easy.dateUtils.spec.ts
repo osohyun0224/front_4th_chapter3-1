@@ -76,7 +76,18 @@ describe('getWeekDates', () => {
     ]);
   });
 
-  it('주의 끝(일요일)에 대해 올바른 주의 날짜들을 반환한다', () => {});
+  it('주의 끝(토요일)에 대해 올바른 주의 날짜들을 반환한다', () => {
+    const weekDates = getWeekDates(new Date('2025-02-08'));
+    expect(weekDates).toEqual([
+      new Date('2025-02-02'),
+      new Date('2025-02-03'),
+      new Date('2025-02-04'),
+      new Date('2025-02-05'),
+      new Date('2025-02-06'),
+      new Date('2025-02-07'),
+      new Date('2025-02-08'),
+    ]);
+  });
 
   it('연도를 넘어가는 주의 날짜를 정확히 처리한다 (연말)', () => {
     const weekDates = getWeekDates(new Date('2024-12-31'));
