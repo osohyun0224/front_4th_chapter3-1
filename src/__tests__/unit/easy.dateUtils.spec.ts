@@ -29,7 +29,24 @@ describe('getDaysInMonth', () => {
     expect(getDaysInMonth(2025, 2)).toBe(28);
   });
 
-  it('유효하지 않은 월에 대해 적절히 처리한다', () => {});
+  it('유효하지 않은 월에 대해 -1을 반환한다', () => {
+    expect(getDaysInMonth(2025, 15)).toBe(-1);
+  });
+
+  describe('경계값 테스트', () => {
+    it('0월은 유효하지 않은 월로 처리되어 -1을 반환한다', () => {
+      expect(getDaysInMonth(2024, 0)).toBe(-1);
+    });
+
+    it('13월은 유효하지 않은 월로 처리되어 -1을 반환한다', () => {
+      expect(getDaysInMonth(2024, 13)).toBe(-1);
+    });
+
+    it('20월과 25월 같은 큰 숫자는 유효하지 않은 월로 처리되어 -1을 반환한다', () => {
+      expect(getDaysInMonth(2024, 20)).toBe(-1);
+      expect(getDaysInMonth(2024, 25)).toBe(-1);
+    });
+  });
 });
 
 describe('getWeekDates', () => {
