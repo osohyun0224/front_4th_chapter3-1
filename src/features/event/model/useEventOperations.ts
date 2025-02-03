@@ -1,11 +1,12 @@
 import { useToast } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { Event, EventForm } from '@/types';
 
 export const useEventOperations = (editing: boolean, onSave?: () => void) => {
   const [events, setEvents] = useState<Event[]>([]);
   const toast = useToast();
+  const initialized = useRef(false);
 
   const fetchEvents = async () => {
     try {
@@ -103,8 +104,12 @@ export const useEventOperations = (editing: boolean, onSave?: () => void) => {
   }
 
   useEffect(() => {
-    init();
-  }, [init]);
+    if (!initialized.current) {
+      init();
+      initialized.current = true; // Set to true after initialization
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return { events, fetchEvents, saveEvent, deleteEvent };
 };
