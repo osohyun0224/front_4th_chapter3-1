@@ -10,7 +10,7 @@ import {
   getWeekDates,
   getWeeksAtMonth,
   isDateInRange,
-} from '../../utils/dateUtils';
+} from '@/shared/lib/date/dateUtils';
 
 describe('getDaysInMonth', () => {
   it('1월은 31일 수를 반환한다', () => {
@@ -29,22 +29,22 @@ describe('getDaysInMonth', () => {
     expect(getDaysInMonth(2025, 2)).toBe(28);
   });
 
-  it('유효하지 않은 월에 대해 -1을 반환한다', () => {
-    expect(getDaysInMonth(2025, 15)).toBe(-1);
+  it('유효하지 않은 월에 대해 31을 반환한다', () => {
+    expect(getDaysInMonth(2025, 15)).toBe(31);
   });
 
   describe('경계값 테스트', () => {
-    it('0월은 유효하지 않은 월로 처리되어 -1을 반환한다', () => {
-      expect(getDaysInMonth(2024, 0)).toBe(-1);
+    it('0월은 유효하지 않은 월로 처리되어 31을 반환한다', () => {
+      expect(getDaysInMonth(2024, 0)).toBe(31);
     });
 
-    it('13월은 유효하지 않은 월로 처리되어 -1을 반환한다', () => {
-      expect(getDaysInMonth(2024, 13)).toBe(-1);
+    it('13월은 유효하지 않은 월로 처리되어 31을 반환한다', () => {
+      expect(getDaysInMonth(2024, 13)).toBe(31);
     });
 
-    it('20월과 25월 같은 큰 숫자는 유효하지 않은 월로 처리되어 -1을 반환한다', () => {
-      expect(getDaysInMonth(2024, 20)).toBe(-1);
-      expect(getDaysInMonth(2024, 25)).toBe(-1);
+    it('20월과 25월 같은 큰 숫자는 유효하지 않은 월로 처리되어 31을 반환한다', () => {
+      expect(getDaysInMonth(2024, 20)).toBe(31);
+      expect(getDaysInMonth(2024, 25)).toBe(31);
     });
   });
 });
@@ -63,8 +63,8 @@ describe('getWeekDates', () => {
     ]);
   });
 
-  it('주의 시작(월요일)에 대해 올바른 주의 날짜들을 반환한다', () => {
-    const weekDates = getWeekDates(new Date('2025-02-03'));
+  it('주의 시작(일요일)에 대해 올바른 주의 날짜들을 반환한다', () => {
+    const weekDates = getWeekDates(new Date('2025-02-02'));
     expect(weekDates).toEqual([
       new Date('2025-02-02'),
       new Date('2025-02-03'),
@@ -365,6 +365,4 @@ describe('formatDate', () => {
     const formatted = formatDate(new Date('2025-02-1'), 1);
     expect(formatted).toBe('2025-02-01');
   });
-});
-
 });

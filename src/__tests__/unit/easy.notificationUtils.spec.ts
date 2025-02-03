@@ -3,7 +3,8 @@ import { Event } from '../../types';
 import {
   createNotificationMessage,
   getUpcomingEvents,
-} from '../../utils/notificationUtils';
+} from '@/features/event/lib/notificationUtils';
+import { setupDateWithTime, cleanupDateMock } from "../dateTimeMockUtils"
 
 const events: Event[] = [
   {
@@ -34,36 +35,33 @@ const events: Event[] = [
 
 describe('getUpcomingEvents', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    setupDateWithTime('2025-02-04', '17:30:00');
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    cleanupDateMock();
   });
 
   it('알림 시간이 정확히 도래한 이벤트를 반환한다', () => {
-    const date = new Date('2025-02-04T17:30:00');
-    const upcomingEvents = getUpcomingEvents(events, date, []);
+    setupDateWithTime('2025-02-04', '17:30:00');
+    const upcomingEvents = getUpcomingEvents(events, new Date(), []);
     expect(upcomingEvents).toHaveLength(1);
   });
 
   it('이미 알림이 간 이벤트는 제외한다', () => {
-    const date = new Date('2025-02-04T17:30:00');
-    vi.setSystemTime(date);
+    setupDateWithTime('2025-02-04', '17:30:00');
     const upcomingEvents = getUpcomingEvents(events, new Date(), ['1']);
     expect(upcomingEvents).toHaveLength(0);
   });
 
   it('알림 시간이 아직 도래하지 않은 이벤트는 반환하지 않는다', () => {
-    const date = new Date('2025-02-04T17:00:00');
-    vi.setSystemTime(date);
+    setupDateWithTime('2025-02-04', '17:00:00');
     const upcomingEvents = getUpcomingEvents(events, new Date(), []);
     expect(upcomingEvents).toHaveLength(0);
   });
 
   it('알림 시간이 지난 이벤트는 반환하지 않는다', () => {
-    const date = new Date('2025-02-04T18:30:00');
-    vi.setSystemTime(date);
+    setupDateWithTime('2025-02-04', '18:30:00');
     const upcomingEvents = getUpcomingEvents(events, new Date(), []);
     expect(upcomingEvents).toHaveLength(0);
   });
