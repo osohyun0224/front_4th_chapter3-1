@@ -1,10 +1,10 @@
-import { Event } from '@/types';
+import { setupDateWithTime, cleanupDateMock } from '../dateTimeMockUtils';
 
 import {
   createNotificationMessage,
   getUpcomingEvents,
 } from '@/features/event/lib/notificationUtils';
-import { setupDateWithTime, cleanupDateMock } from "../dateTimeMockUtils"
+import { Event } from '@/types';
 
 const events: Event[] = [
   {

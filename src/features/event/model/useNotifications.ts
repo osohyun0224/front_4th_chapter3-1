@@ -2,7 +2,11 @@ import { useInterval } from '@chakra-ui/react';
 import { useState } from 'react';
 
 import { Event } from '../../../types';
-import { createNotificationMessage, getUpcomingEvents } from '@/features/event/lib/notificationUtils';
+
+import {
+  createNotificationMessage,
+  getUpcomingEvents,
+} from '@/features/event/lib/notificationUtils';
 import { removeItemAtIndex, extractIdsFromObjects, insertItems } from '@/shared/lib/arrayUtils';
 
 const createNotifications = (events: Event[]) =>

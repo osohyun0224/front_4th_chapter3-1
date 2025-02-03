@@ -21,8 +21,8 @@ export const insertItems = <T>(
   position: 'start' | 'end' = 'end'
 ): T[] => {
   const itemsArray = Array.isArray(itemsToAdd) ? itemsToAdd : [itemsToAdd];
-  
-  return position === 'start' 
+
+  return position === 'start'
     ? [...itemsArray, ...originalArray]
     : [...originalArray, ...itemsArray];
 };

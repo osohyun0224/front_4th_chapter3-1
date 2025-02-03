@@ -1,5 +1,3 @@
-import { Event } from '@/types';
-
 import {
   fillZero,
   formatDate,
@@ -11,6 +9,7 @@ import {
   getWeeksAtMonth,
   isDateInRange,
 } from '@/shared/lib/date/dateUtils';
+import { Event } from '@/types';
 
 describe('getDaysInMonth', () => {
   it('1월은 31일 수를 반환한다', () => {

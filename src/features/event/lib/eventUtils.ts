@@ -1,6 +1,6 @@
-import { getWeekDates, isDateInRange } from '@/shared/lib/date/dateUtils';
 import { EventFormData, RepeatState } from '../model/types';
 
+import { getWeekDates, isDateInRange } from '@/shared/lib/date/dateUtils';
 import { Event, EventForm, RepeatInfo } from '@/types';
 
 function filterEventsByDateRange(events: Event[], start: Date, end: Date): Event[] {

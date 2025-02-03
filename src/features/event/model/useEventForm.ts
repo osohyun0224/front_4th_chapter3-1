@@ -32,7 +32,7 @@ export const useEventForm = (initialEvent?: Event) => {
   const [startTime, setStartTime] = useState(initialEvent?.startTime || '');
   const [endTime, setEndTime] = useState(initialEvent?.endTime || '');
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
-  
+
   const [{ startTimeError, endTimeError }, setTimeError] = useState<TimeErrorRecord>({
     startTimeError: null,
     endTimeError: null,

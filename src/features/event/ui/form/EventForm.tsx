@@ -10,12 +10,13 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-import { EventRepeatFormManage } from './EventRepeatFormManage';
 import { EventFormButton } from './EventFormButton';
+import { EventRepeatFormManage } from './EventRepeatFormManage';
+
 import { useEventContext } from '@/features/event/model/useEventContext';
-import { categories } from "@/shared/config/category";
-import { getTimeErrorMessage } from '@/shared/lib/date/timeValidation';
+import { categories } from '@/shared/config/category';
 import { notificationOptions } from '@/shared/config/notification';
+import { getTimeErrorMessage } from '@/shared/lib/date/timeValidation';
 
 export const EventForm = () => {
   const { formValues } = useEventContext();

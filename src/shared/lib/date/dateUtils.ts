@@ -1,5 +1,4 @@
-import { Event } from "../../../types"
-
+import { Event } from '../../../types';
 
 /**
  * 주어진 년도와 월의 일수를 반환합니다.

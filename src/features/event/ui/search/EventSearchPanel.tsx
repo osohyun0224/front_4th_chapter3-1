@@ -1,7 +1,7 @@
 import { FormControl, FormLabel, Input, VStack } from '@chakra-ui/react';
 
-import EventSearchResults from "@/features/event/ui/search/EventSearchResults"
 import { useEventContext } from '@/features/event/model/useEventContext';
+import EventSearchResults from '@/features/event/ui/search/EventSearchResults';
 
 export const EventSearchPanel = () => {
   const { searchValues, notificationsValues } = useEventContext();

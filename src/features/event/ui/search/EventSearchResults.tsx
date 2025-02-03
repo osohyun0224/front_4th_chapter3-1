@@ -2,7 +2,6 @@ import { BellIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { Box, HStack, IconButton, Text, VStack } from '@chakra-ui/react';
 
 import { useEventContext } from '@/features/event/model/useEventContext';
-
 import { notificationOptions } from '@/shared/config/notification';
 import { Event } from '@/types';
 

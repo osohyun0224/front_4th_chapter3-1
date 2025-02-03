@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import React from 'react';
 
 import { Event } from '../../types';
+
 import { CalendarWeekView } from '@/features/event/ui/calendar';
 
 const renderWithChakra = (ui: React.ReactElement) => {

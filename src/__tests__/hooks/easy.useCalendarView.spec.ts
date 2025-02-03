@@ -1,8 +1,9 @@
 import { act, renderHook } from '@testing-library/react';
 
-import { useCalendarView } from '@/features/event/model/useCalendarView.ts';
 import { setupDateMock, cleanupDateMock } from '../dateTimeMockUtils.ts';
 import { assertDate } from '../utils.ts';
+
+import { useCalendarView } from '@/features/event/model/useCalendarView.ts';
 
 beforeEach(() => {
   setupDateMock('2024-10-01');

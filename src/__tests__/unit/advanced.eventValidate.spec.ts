@@ -1,5 +1,8 @@
-import { validateEvent, validateRequiredEventData, validateTime } from '@/features/event/lib/eventValidate';
-
+import {
+  validateEvent,
+  validateRequiredEventData,
+  validateTime,
+} from '@/features/event/lib/eventValidate';
 import { EventForm } from '@/types';
 
 describe('Event Validation 검증 테스트', () => {

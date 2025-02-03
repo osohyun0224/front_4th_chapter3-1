@@ -1,11 +1,10 @@
 import { act, renderHook } from '@testing-library/react';
 
-import { useNotifications } from '@/features/event/model/useNotifications.ts';
-import { Event } from '@/types.ts';
-
-import { createNotificationMessage } from '@/features/event/lib/notificationUtils.ts';
 import { setupDateMock, cleanupDateMock } from '../dateTimeMockUtils';
 
+import { createNotificationMessage } from '@/features/event/lib/notificationUtils.ts';
+import { useNotifications } from '@/features/event/model/useNotifications.ts';
+import { Event } from '@/types.ts';
 
 const events: Event[] = [
   {

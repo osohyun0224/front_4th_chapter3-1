@@ -2,13 +2,13 @@ import { Heading, Text, VStack } from '@chakra-ui/react';
 
 import { CalendarDay } from './CalendarDay';
 
+import { weekDays } from '@/shared/config/date';
 import {
   formatDate,
   formatMonth,
   getEventsForDay,
   getWeeksAtMonth,
 } from '@/shared/lib/date/dateUtils';
-import { weekDays } from '@/shared/config/date';
 import { Table } from '@/shared/ui';
 import { Event } from '@/types';
 

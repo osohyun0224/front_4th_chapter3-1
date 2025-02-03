@@ -2,14 +2,15 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { render, screen, within, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 
+import App from '../App';
+import { setupDateWithTime, cleanupDateMock } from './dateTimeMockUtils';
+
 import {
   setupEventCreateHandler,
   setupEventDeleteHandler,
   setupEventUpdateHandler,
 } from '@/__mocks__/handlersUtils';
-import App from '../App';
 import { Event, EventForm } from '@/types';
-import { setupDateWithTime, cleanupDateMock } from './dateTimeMockUtils';
 
 const initialEvents = [
   {
@@ -127,7 +128,7 @@ describe('일정 CRUD 및 기본 기능', () => {
     setupEventUpdateHandler(initialEvents);
 
     const eventList = screen.getByTestId('event-list');
-    
+
     // 이벤트 목록이 로드될 때까지 대기하기!
     await waitFor(() => {
       expect(screen.getByText(firstEvent.location)).toBeInTheDocument();

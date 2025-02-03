@@ -2,8 +2,8 @@ import { Heading, Text, VStack } from '@chakra-ui/react';
 
 import { CalendarDay } from './CalendarDay';
 
-import { formatDate, formatWeek, getWeekDates, isEqualDate } from '@/shared/lib/date/dateUtils';
 import { weekDays } from '@/shared/config/date';
+import { formatDate, formatWeek, getWeekDates, isEqualDate } from '@/shared/lib/date/dateUtils';
 import { Table } from '@/shared/ui';
 import { Event } from '@/types';
 
@@ -56,9 +56,7 @@ export const CalendarWeekView = ({
                     .filter((event) => isEqualDate(new Date(event.date), date))
                     .map((event) => {
                       const isNotified = notifiedEvents.includes(event.id);
-                      return (
-                        <CalendarDay key={event.id} event={event} isNotified={isNotified} />
-                      );
+                      return <CalendarDay key={event.id} event={event} isNotified={isNotified} />;
                     })}
                 </Table.Cell>
               );

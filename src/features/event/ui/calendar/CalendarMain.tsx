@@ -1,9 +1,8 @@
 import { Heading, VStack } from '@chakra-ui/react';
 
-import CalendarViewSelector from "@/features/event/ui/calendar/CalendarViewSelector"
 import { useEventContext } from '@/features/event/model/useEventContext';
-
 import { CalendarMonthView, CalendarWeekView } from '@/features/event/ui/calendar';
+import CalendarViewSelector from '@/features/event/ui/calendar/CalendarViewSelector';
 
 export const CalendarMain = () => {
   const { notificationsValues, calendarViewValues, searchValues } = useEventContext();

@@ -1,4 +1,4 @@
-import { fillZero } from "@/shared/lib/date/dateUtils"
+import { fillZero } from '@/shared/lib/date/dateUtils';
 
 export const assertDate = (date1: Date, date2: Date) => {
   expect(date1.toISOString()).toBe(date2.toISOString());

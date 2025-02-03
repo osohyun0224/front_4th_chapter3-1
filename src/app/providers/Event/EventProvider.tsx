@@ -1,5 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
+
 import { EventContext } from './EventContext';
+
 import { findOverlappingEvents } from '@/features/event/lib/eventOverlap';
 import { createEventFormData } from '@/features/event/lib/eventUtils';
 import { useCalendarView } from '@/features/event/model/useCalendarView';
