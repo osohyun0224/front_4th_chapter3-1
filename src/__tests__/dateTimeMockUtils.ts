@@ -6,6 +6,11 @@ export const setupDateMock = (dateString: string) => {
   vi.setSystemTime(date);
 };
 
+export const setupDateWithTime = (dateString: string, timeString: string) => {
+  const date = new Date(`${dateString}T${timeString}`);
+  vi.setSystemTime(date);
+};
+
 export const cleanupDateMock = () => {
   vi.useRealTimers();
 };
