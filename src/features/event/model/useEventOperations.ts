@@ -104,7 +104,7 @@ export const useEventOperations = (editing: boolean, onSave?: () => void) => {
 
   useEffect(() => {
     init();
-  }, []);
+  }, [init]);
 
   return { events, fetchEvents, saveEvent, deleteEvent };
 };
