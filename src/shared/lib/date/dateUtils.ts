@@ -1,9 +1,12 @@
 import { Event } from "../../../types"
 
+
 /**
  * 주어진 년도와 월의 일수를 반환합니다.
  */
 export function getDaysInMonth(year: number, month: number): number {
+  //유효하지 않은 월에 대해 -1을 반환하도록 수정(기존 31 반환)
+  if (month > 12 || month < 1) return -1;
   return new Date(year, month, 0).getDate();
 }
 
@@ -102,7 +105,6 @@ export function formatDate(currentDate: Date, day?: number) {
     fillZero(day ?? currentDate.getDate()),
   ].join('-');
 }
-
 export function isEqualDate(date1: Date, date2: Date) {
   return date1.toDateString() === date2.toDateString();
 }
