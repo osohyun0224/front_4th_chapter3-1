@@ -1,4 +1,4 @@
-import { Event } from '../../types';
+import { Event } from '@/types';
 
 import { getFilteredEvents } from '@/features/event/lib/eventUtils';
 

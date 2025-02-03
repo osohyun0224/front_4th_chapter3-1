@@ -6,9 +6,9 @@ import {
   setupEventCreateHandler,
   setupEventDeleteHandler,
   setupEventUpdateHandler,
-} from '../__mocks__/handlersUtils';
+} from '@/__mocks__/handlersUtils';
 import App from '../App';
-import { Event, EventForm } from '../types';
+import { Event, EventForm } from '@/types';
 import { setupDateWithTime, cleanupDateMock } from './dateTimeMockUtils';
 
 const initialEvents = [
@@ -59,8 +59,6 @@ describe('일정 CRUD 및 기본 기능', () => {
   afterEach(() => {
     cleanupDateMock();
   });
-
-  // ! HINT. "검색 결과가 없습니다"는 초기에 노출되는데요. 그럼 검증하고자 하는 액션이 실행되기 전에 검증해버리지 않을까요? 이 테스트를 신뢰성있게 만드려면 어떻게 할까요?
   it('입력한 새로운 일정 정보에 맞춰 모든 필드가 이벤트 리스트에 정확히 저장된다.', async () => {
     // ! HINT. event를 추가 제거하고 저장하는 로직을 잘 살펴보고, 만약 그대로 구현한다면 어떤 문제가 있을 지 고민해보세요.
     const _initialEvents = [...initialEvents];

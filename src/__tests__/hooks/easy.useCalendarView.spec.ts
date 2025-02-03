@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react';
 
-import { useCalendarView } from '../../features/event/model/useCalendarView.ts';
+import { useCalendarView } from '@/features/event/model/useCalendarView.ts';
 import { setupDateMock, cleanupDateMock } from '../dateTimeMockUtils.ts';
 import { assertDate } from '../utils.ts';
 

@@ -1,14 +1,14 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { http, HttpResponse } from 'msw';
 
-import { server } from '../../setupTests.ts';
-import { useEventOperations } from '../../features/event/model/useEventOperations.ts';
+import { server } from '@/setupTests.ts';
+import { useEventOperations } from '@/features/event/model/useEventOperations.ts';
 import {
   mockCreateEvent,
   mockUpdateEvent,
   mockDeleteEvent,
-} from '../../__mocks__/handlersUtils.ts';
-import { events } from '../../__mocks__/response/events.json' assert { type: 'json' };
+} from '@/__mocks__/handlersUtils.ts';
+import { events } from '@/__mocks__/response/events.json' assert { type: 'json' };
 import { Event, EventForm } from '../../types.ts';
 
 const initialEvents = events as Event[];
