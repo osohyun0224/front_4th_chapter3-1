@@ -1,7 +1,7 @@
 import { useToast } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
-import { Event, EventForm } from '../types';
+import { Event, EventForm } from '@/types';
 
 export const useEventOperations = (editing: boolean, onSave?: () => void) => {
   const [events, setEvents] = useState<Event[]>([]);
@@ -93,6 +93,7 @@ export const useEventOperations = (editing: boolean, onSave?: () => void) => {
   };
 
   async function init() {
+    if (events.length > 0) return;
     await fetchEvents();
     toast({
       title: '일정 로딩 완료!',
@@ -103,7 +104,6 @@ export const useEventOperations = (editing: boolean, onSave?: () => void) => {
 
   useEffect(() => {
     init();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { events, fetchEvents, saveEvent, deleteEvent };
